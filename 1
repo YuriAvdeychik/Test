@@ -1,0 +1,34 @@
+using System;
+using System.Text;
+
+namespace Hello_World
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            GetUserInput("Enter the password: ");
+        }
+        static int GetUserInput(string text)
+        {
+            Console.Write(text);
+            string password = Console.ReadLine();
+           
+            try
+            {
+                return int.Parse(password);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Only numbers!");
+                return GetUserInput(text);
+            }
+            finally
+            {
+                
+                Console.WriteLine("Correct pass: " + password);
+            }
+            
+        }
+    }
+}
